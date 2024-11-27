@@ -3,11 +3,7 @@ import array.MyArrayList;
 
 import java.util.Comparator;
 
-import array.MyArrayList;
-import actions.Actions;
 import sort.QuickSort;
-
-import java.util.Comparator;
 
 public class Main {
 
