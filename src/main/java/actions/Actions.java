@@ -21,11 +21,10 @@ public class Actions {
      * @param <T> тип элементов списка
      */
     public static <T> void add(MyArrayList<T> list, T element) {
-        Object[] elements = list.getRawArray();
-        if (list.size() == elements.length) {
+        if (list.size() == list.getRawArray().length) {
             list.resize();
         }
-        elements[list.size()] = element;
+        list.setInternal(list.size(), element);
         list.upSize();
     }
 
@@ -52,7 +51,7 @@ public class Actions {
         System.arraycopy(elements, index, elements, index + 1, list.size() - index);
         list.upSize();
         elements[index] = element;
-        //list.upSize();
+
     }
 
     /**

@@ -27,6 +27,21 @@ class ActionsTest {
         assertEquals("[10, 20, 30]", list.toString());
     }
 
+
+    /**
+     * Тест на добавление 1_000_000 значений.
+     */
+    @Test
+    void testAddMillion() {
+        MyArrayList<Integer> list = new MyArrayList<>();
+        for (int i = 0; i <1_000_000; i ++) {
+            int element = i;
+            Actions.add(list, element);
+        }
+
+        assertEquals(1_000_000, list.size());
+    }
+
     /**
      * Тест на добавление элемента по индексу.
      */
