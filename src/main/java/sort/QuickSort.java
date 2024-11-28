@@ -4,14 +4,12 @@ import array.MyArrayList;
 import java.util.Comparator;
 
 /**
- * Класс для сортировки списка с использованием алгоритма быстрой сортировки (QuickSort).
+ * Реализация алгоритма быстрой сортировки QuickSort для списка MyArrayList.
  */
 public class QuickSort {
 
     /**
-     * Сортирует переданный список с использованием алгоритма QuickSort.
-     * <p>
-     * Вызывает метод {@link #quickSort(MyArrayList, Comparator, int, int)} для выполнения сортировки.
+     * Сортирует список с использованием алгоритма QuickSort.
      *
      * @param list список, который нужно отсортировать
      * @param comparator компаратор для сравнения элементов
@@ -22,14 +20,12 @@ public class QuickSort {
     }
 
     /**
-     * Рекурсивный метод для сортировки с использованием быстрой сортировки.
-     * <p>
-     * Вызывает метод {@link #partition(MyArrayList, Comparator, int, int)} для разделения списка.
+     * Выполняет быструю сортировку на заданном массиве.
      *
      * @param list список, который нужно отсортировать
      * @param comparator компаратор для сравнения элементов
-     * @param low индекс начала сортируемого подмассива
-     * @param high индекс конца сортируемого подмассива
+     * @param low индекс начала подмассива
+     * @param high индекс конца подмассива
      * @param <T> тип элементов списка
      */
     private static <T> void quickSort(MyArrayList<T> list, Comparator<? super T> comparator, int low, int high) {
@@ -41,16 +37,14 @@ public class QuickSort {
     }
 
     /**
-     * Разделяет массив на две части: одну с элементами меньше опорного, другую — с большими.
-     * <p>
-     * Вызывает метод {@link #swap(MyArrayList, int, int)} для обмена элементов.
-     *
+     * Разделяет подмассив на элементы меньше и больше опорного.
+     * Определяет индекс опорного элемента.
      * @param list список, который нужно разделить
      * @param comparator компаратор для сравнения элементов
-     * @param low индекс начала раздела
-     * @param high индекс конца раздела
+     * @param low индекс начала подмассива
+     * @param high индекс конца подмассива
      * @param <T> тип элементов списка
-     * @return индекс опорного элемента после раздела
+     * @return индекс опорного элемента после разделения
      */
     private static <T> int partition(MyArrayList<T> list, Comparator<? super T> comparator, int low, int high) {
         T pivot = list.get(high);
@@ -58,8 +52,7 @@ public class QuickSort {
 
         for (int j = low; j < high; j++) {
             if (comparator.compare(list.get(j), pivot) <= 0) {
-                i++;
-                swap(list, i, j);
+                swap(list, ++i, j);
             }
         }
         swap(list, i + 1, high);
@@ -67,11 +60,11 @@ public class QuickSort {
     }
 
     /**
-     * Меняет местами элементы на указанных индексах.
+     * Меняет местами два элемента списка.
      *
      * @param list список, в котором нужно обменять элементы
-     * @param i первый индекс
-     * @param j второй индекс
+     * @param i индекс первого элемента
+     * @param j индекс второго элемента
      * @param <T> тип элементов списка
      */
     private static <T> void swap(MyArrayList<T> list, int i, int j) {

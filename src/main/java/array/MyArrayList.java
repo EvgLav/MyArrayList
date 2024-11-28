@@ -27,8 +27,8 @@ public class MyArrayList<T> {
      * @throws IllegalArgumentException если начальная вместимость меньше 0
      */
     public MyArrayList(int initialCapacity) {
-        if (initialCapacity < 0) {
-            throw new IllegalArgumentException("Capacity must be non-negative.");
+        if (initialCapacity <= 0) {
+            throw new IllegalArgumentException("Capacity <=0");
         }
         this.elements = new Object[initialCapacity];
         this.size = 0;
