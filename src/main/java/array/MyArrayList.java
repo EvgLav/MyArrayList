@@ -10,12 +10,13 @@ package array;
 public class MyArrayList<T> {
     private Object[] elements;
     private int size;
+    private final int DEFAULT_SIZE = 10;
 
     /**
      * Конструктор по умолчанию. Создает список с начальной вместимостью 10.
      */
     public MyArrayList() {
-        this.elements = new Object[10];
+        this.elements = new Object[DEFAULT_SIZE];
         this.size = 0;
     }
 
