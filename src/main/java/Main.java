@@ -1,8 +1,6 @@
-import actions.Actions;
 import array.MyArrayList;
 
 import java.util.Comparator;
-import java.util.Random;
 import java.util.random.RandomGenerator;
 
 public class Main {
@@ -13,11 +11,11 @@ public class Main {
         MyArrayList<Integer> list = new MyArrayList<>();
         for (int i = 0; i < 100; i ++) {
             int element = RandomGenerator.getDefault().nextInt(100);
-            Actions.add(list, element);
+            list.add(list, element);
         }
         System.out.println(list);
 
-        Actions.sort(list, Comparator.naturalOrder());
+        list.sort(list, Comparator.naturalOrder());
         System.out.println(list);
 
 
